@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --white: #ffffff;
+  --black-01: #333333;
+}
+
 @layer base {
   body {
     @apply font-satoshi font-normal text-base text-body bg-whiten relative z-1;
@@ -117,7 +122,9 @@ span.flatpickr-weekday,
 }
 .flatpickr-day.inRange {
   @apply dark:!shadow-7;
-  box-shadow: -5px 0 0 #EFF4FB, 5px 0 0 #EFF4FB;
+  box-shadow:
+    -5px 0 0 #eff4fb,
+    5px 0 0 #eff4fb;
 }
 .flatpickr-day.inRange,
 .flatpickr-day.prevMonthDay.inRange,
@@ -212,4 +219,16 @@ span.flatpickr-weekday,
 
 [x-cloak] {
   display: none !important;
+}
+
+.logo {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: var(--black-01);
+}
+
+.dark .logo {
+  color: var(--white);
 }

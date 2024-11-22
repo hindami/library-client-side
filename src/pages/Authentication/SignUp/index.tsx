@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { signUp } from './services';
 
 const SignUp: React.FC = () => {
   const navigate = useNavigate();
@@ -31,7 +32,8 @@ const SignUp: React.FC = () => {
       password: password,
     };
 
-    // const response = await signUp(payload);
+    const response = await signUp(payload);
+    console.log(response);
 
     // if (response?.status) {
     //   toast.success('Registrasi Berhasil!');
@@ -181,6 +183,7 @@ const SignUp: React.FC = () => {
                   </label>
                   <div className="relative">
                     <input
+                      {...register('confirmPassword')}
                       type="password"
                       placeholder="Re-enter your password"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
